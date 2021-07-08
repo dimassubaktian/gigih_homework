@@ -1,11 +1,11 @@
 class Person
     attr_accessor :hitpoint
     attr_reader :name, :attack_damage, :deflect
-    def initialize(name, hitpoint, attack_damage, deflect)
+
+    def initialize(name, hitpoint, attack_damage)
         @name = name
         @hitpoint = hitpoint
         @attack_damage = attack_damage      
-        @deflect = deflect
     end
 
     def to_s
@@ -16,8 +16,10 @@ class Person
 
     def attack(other_person)
 
-        r = rand(1..100)
-        # puts "#{r}" // to know what number show and check is the app work or not  :)
+        r = deflact_chance
+
+        f = flee_chance
+
         if r <= other_person.deflect && other_person.deflect > 0
             puts "#{@name} attacks #{other_person.name} with #{@attack_damage} damage"
             puts "#{other_person.name} deflects the attack"
@@ -35,12 +37,21 @@ class Person
  
     end
 
+    def deflact_chance 
+        return rand(1..100)
+    end
+
+    def flee_chance 
+        return rand(1..100)
+    end
+
     def take_damage(damage)
         @hitpoint -= damage
     end
 
     
 end
+
 
 
 # un used code 
