@@ -2,7 +2,7 @@ require_relative 'person'
 
 
 class Hero < Person
-    attr_accessor :deflect
+    attr_reader :deflect
     def initialize(name, hitpoint, attack_damage)
         @name = name
         @hitpoint = hitpoint
@@ -16,13 +16,16 @@ class Hero < Person
         elsif 
             @hitpoint -= damage
         end
-        if dead?
-            exit
-        end
+        die?
     end
 
     def deflect?
         return random <= 80
+    end
+
+    def heal_hero
+        @hitpoint += 20
+        puts "Jin Sakai heals #{@name}, restoring 20 hitpoints. now #{@name} has #{@hitpoint} hitpoints"
     end
 
 

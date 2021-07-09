@@ -1,6 +1,7 @@
 class Person
     # give access to use variable
-    attr_accessor :hitpoint, :name, :attack_damage 
+    attr_accessor :hitpoints
+    attr_accessor :name, :attack_damage 
 
     def initialize(name, hitpoint, attack_damage)
         @name = name

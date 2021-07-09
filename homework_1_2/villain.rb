@@ -1,6 +1,7 @@
 require_relative 'person'
 
 class Villain < Person
+    attr_reader :flee_percentage, :fleed
     def initialize(name, hitpoint, attack_damage)
         @name = name
         @hitpoint = hitpoint
