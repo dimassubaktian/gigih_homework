@@ -1,15 +1,8 @@
 require 'mysql2'
 require './item'
 require './category'
-def create_db_client
-    client = Mysql2::Client.new(
-        :host=>"localhost",
-        :username => "root",
-        :password => 'Ubuntu.2020',
-        :database => "food_oms_db"
-    )
-    client    
-end
+require './database_conf'
+
 
 def get_all_items
     client = create_db_client
