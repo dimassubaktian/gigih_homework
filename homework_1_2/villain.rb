@@ -21,10 +21,15 @@ class Villain < Person
 
     def flee
         @fleed = true
-        puts "#{@name} has fled the battlefield with #{hitpoint} hitpoint left"
+        puts "#{@name} has fled the battlefield with #{@hitpoint} hitpoint left"
     end
 
     def flee?
         @fleed
+    end
+
+    # from solution
+    def removed?
+        die? || flee?
     end
 end

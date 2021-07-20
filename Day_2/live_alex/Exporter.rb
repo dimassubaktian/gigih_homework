@@ -4,7 +4,6 @@ class GenericExporter
     end
 end
 
-
 class PdfExporter < GenericExporter
     def export
         puts "Export to .pdf format"

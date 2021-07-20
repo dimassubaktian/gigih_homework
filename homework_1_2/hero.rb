@@ -20,14 +20,13 @@ class Hero < Person
     end
 
     def deflect?
-        return random <= 80
+        return random <= @deflect
     end
 
     def heal_hero
         @hitpoint += 20
         puts "Jin Sakai heals #{@name}, restoring 20 hitpoints. now #{@name} has #{@hitpoint} hitpoints"
     end
-
 
     def random
         return rand(0..100)
