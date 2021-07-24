@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Food OMS</title>
+  </head>
+  <body>
+    <% category_data.each do |category_d| %>
+      <h1>Edit <%= category_d['name'] %></h1>
+      <form action="/categories/update" method="post">
+        <input type="hidden" name="id" id="id" value="<%= category_d['id'] %>">
+        <input type="text" name="name" id="name" placeholder="Insert item name" value="<%= category_d['name'] %>" required>
+        <button type="submit">Submit</button>
+      </form>
+    <% end %>
+    <a href="/categories">Back</a>
+  </body>
+</html>

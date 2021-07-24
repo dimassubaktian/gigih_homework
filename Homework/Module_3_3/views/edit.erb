@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Food OMS</title>
+  </head>
+  <body>
+    <% item_data.each do |item_d| %>
+      <h1>Edit <%= item_d['name'] %></h1>
+      <form action="/items/update" method="post">
+        <input type="hidden" name="id" id="id" value="<%= item_d['id'] %>">
+        <input type="text" name="name" id="name" placeholder="Insert item name" value="<%= item_d['name'] %>" required>
+        <input type="number" name="price" id="price" placeholder="Insert item price" value="<%= item_d['price'] %>" required>
+        <br>
+        <label>Select Category of an Item</label><br>
+        <% no=1 %>
+        <% list_of_category = item_d['category_id'].split(',') %>
+        <% categories.each do |item| %>
+          <input type="checkbox" id="category<%= no %>" name="category[]" value="<%= item.id %>" <%= checkbox = (list_of_category.include? item.id.to_s) ? "checked" : ""  %>>
+          <label for="category<%= no %>"><%= item.name %></label><br>
+          <% no += 1%>
+        <% end %>
+        <button type="submit" style="margin-top:5px;">Submit</button>
+      </form>
+    <% end %>
+    <a href="/">Back</a>
+  </body>
+</html>

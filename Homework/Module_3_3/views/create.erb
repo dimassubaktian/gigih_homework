@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Food OMS</title>
+  </head>
+  <body>
+    <h1>Create New Item</h1>
+    <form action="/items/store" method="post">
+      <input type="text" name="name" id="name" placeholder="Insert item name" required>
+      <input type="number" name="price" id="price" placeholder="Insert item price" required>
+      <br>
+      <label>Select Category of an Item</label><br>
+      <% no=1 %>
+      <% categories.each do |item| %>
+        <input type="checkbox" id="category<%= no %>" name="category[]" value="<%= item.id %>">
+        <label for="category<%= no %>"><%= item.name %></label><br>
+        <% no += 1%>
+      <% end %>
+      <button type="submit" style="margin-top:5px;">Submit</button>
+    </form>
+    <a href="/">Back</a>
+  </body>
+</html>

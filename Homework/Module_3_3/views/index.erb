@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Food OMS</title>
+  </head>
+  <body>
+    <h1>Item</h1>
+    <a href="/categories">Go To Categories</a>
+    <table>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          price
+        </th>
+        <th>
+          Action
+        </th>
+      </tr>
+      <% items.each do |item| %>
+        <tr>
+          <td>
+            <%= item.name %>
+          </td>
+          <td>
+            <%= item.price %>
+          </td>
+          <td>
+            <a href="/items/edit?id=<%= item.id %>">Edit</a>
+            <a href="/items/detail?id=<%= item.id %>">Detail</a>
+            <a href="/items/delete?id=<%= item.id %>" onclick="return confirm('Apakah anda yakin ingin menghapus item ini? item yang telah dihapus tidak bisa dikembalikan lagi')">Delete</a>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <a href="/items/create">Create New</a>
+  </body>
+</html>

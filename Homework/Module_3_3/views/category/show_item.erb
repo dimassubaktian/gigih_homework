@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Food OMS</title>
+  </head>
+  <body>
+    <h1>Item of category</h1>
+    <table>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          price
+        </th>
+      </tr>
+      <% item_data.each do |item| %>
+        <tr>
+          <td>
+            <%= item.name %>
+          </td>
+          <td>
+            <%= item.price %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <a href="/categories">Back</a>
+  </body>
+</html>
