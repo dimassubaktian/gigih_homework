@@ -58,7 +58,8 @@ class Category
         rawData = client.query("SELECT i.id, i.name, i.price
             FROM items i
             JOIN item_categories ic ON ic.item_id = i.id
-            WHERE ic.is_delete = false
+            WHERE i.is_delete = 'false'
+            AND ic.is_delete = 'false'
             AND ic.category_id = #{id}
             GROUP BY i.name"
         )
