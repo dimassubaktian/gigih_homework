@@ -1,0 +1,13 @@
+<form method="POST" action="/items/create">
+<input name="name" type="text"><br/>
+<input name="price" type="text"><br/>
+<select name="category" id="category"> 
+ <% categories.each do |category|%>
+ <%puts(category.name)%>
+
+ <option value=<%=category.id%>><%= category.name%></option>
+
+ <%end%>
+  </select>
+<input type="submit" value="Submit">
+</form>
