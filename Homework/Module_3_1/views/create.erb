@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Food OMS</title>
+  </head>
+  <body>
+    <h1>Create New Item</h1>
+    <form action="/items/store" method="post">
+      <input type="text" name="name" id="name" placeholder="Insert item name" required>
+      <input type="number" name="price" id="price" placeholder="Insert item price" required>
+      <select name="category" id="category" required>
+        <option value="">- Select Category -</option>
+        <% categories.each do |item| %>
+          <option value="<%= item.id %>">
+            <%= item.name %>
+          </option>
+        <% end %>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+    <a href="/">Back</a>
+  </body>
+</html>

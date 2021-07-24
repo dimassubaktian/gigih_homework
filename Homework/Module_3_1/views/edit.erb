@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Food OMS</title>
+  </head>
+  <body>
+    <% item_data.each do |item_d| %>
+      <h1>Edit <%= item_d['name'] %></h1>
+      <form action="/items/update" method="post">
+        <input type="hidden" name="id" id="id" value="<%= item_d['id'] %>">
+        <input type="text" name="name" id="name" placeholder="Insert item name" value="<%= item_d['name'] %>" required>
+        <input type="number" name="price" id="price" placeholder="Insert item price" value="<%= item_d['price'] %>" required>
+        <select name="category" id="category" required>
+          <option value="">- Select Category -</option>
+          <% categories.each do |item| %>
+            <option <%= selected = (item.id == item_d['category_id']) ? "selected" : ""  %> value="<%= item.id %>">
+              <%= item.name %>
+            </option>
+          <% end %>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+    <% end %>
+    <a href="/">Back</a>
+  </body>
+</html>
